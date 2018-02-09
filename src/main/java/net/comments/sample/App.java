@@ -1,31 +1,10 @@
 package net.comments.sample;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class App {
 
     public static void main (String [] args){
-     /*  Student andrey = new AttentiveStudent("Andrey"); // JVM know who's method should be run
-       Student nastya = new AttentiveStudent("Nastya");
-       Student dima = new BadStudent("Dima");
-       Teacher ivan = new ProgrammingTeacher("Ivan");
-       Room room = new TrainingRoom();
-       ArrayList <Person> list = new ArrayList();
-       list.add(andrey);
-       list.add(nastya);
-       list.add(dima);
-       list.add(ivan);
-
-       go(andrey);
-       go(nastya);
-       go(dima);
-       say(ivan);
-       room.accept(andrey);
-
-       for (int i = 0; i < list.size(); i++){
-           room.accept(list.get(i));
-       }*/
 
      String [] studentNames = {"Andrey", "Nastya", "Dima"};
      String [] teacherNames = {"Ivan", "Petro"};
