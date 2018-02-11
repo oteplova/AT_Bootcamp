@@ -1,5 +1,10 @@
 package net.comments.sample;
 
+//The interface represents a room.
+
 public interface Room {
-    void accept(Person somePerson);
+
+    // Returns if there is student and/or teacher in the room.
+
+    boolean accept(Person somePerson);
 }
