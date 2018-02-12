@@ -2,23 +2,37 @@ package net.comments.sample;
 
 // The class represents a room with unlimited size
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TrainingRoomUnlimited implements Room {
+    private Teacher someTeacher;
+    private List<Person> enteredPerson;
 
-    private Teacher teacherInRoom = null;
+    public TrainingRoomUnlimited(Teacher someTeacher) {
+        this.someTeacher = someTeacher;
+        enteredPerson = new ArrayList<Person>();
 
-// Allows to come into the room. Only one teacher can be in the room.
-
-    public boolean accept(Person somePerson) {
-        if (somePerson instanceof Teacher && teacherInRoom == null) {
-            this.teacherInRoom = (Teacher) somePerson;
-            System.out.println("Teacher " + somePerson.getName() + " went into the room");
-
-            return true;
-        } else if (somePerson instanceof Student) {
-            System.out.println("Student " + somePerson.getName() + " went into the room");
-
-            return true;
-        }
-        return false;
     }
+
+    // Allows to come into the room. Only one teacher can be in the room.
+
+    public void accept(Person somePerson) {
+
+        System.out.println("Student " + somePerson.getName() + " went into the room");
+        enteredPerson.add(somePerson);
+    }
+
+    public Teacher getTeacher() {
+        return this.someTeacher;
+    }
+
+    public int getSize() {
+        return 0;
+    }
+
+    public List<Person> getEnteredPerson() {
+        return enteredPerson;
+    }
+
 }

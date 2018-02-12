@@ -14,32 +14,33 @@ public class App {
 
         List<Student> studentList = new ArrayList();
         List<Teacher> teacherList = new ArrayList();
-        List<Person> personList = new ArrayList();
-
-        Room limitedRoom = new TrainingRoomLimited(6);
-        Room unlimitedRoom = new TrainingRoomUnlimited();
+//        List<Person> personList = new ArrayList();
 
         Subject gitSubject = new GeneralSubject("use git");
         Subject cookingSubject = new GeneralSubject("bake a cake");
 
         // Fill collection with Student's objects
-        for (int i = 0; i < studentNamesAttentive.length; i++) {
-            studentList.add(new AttentiveStudent(studentNamesAttentive[i]));
+        for (String studentName : studentNamesAttentive) {
+            studentList.add(new AttentiveStudent(studentName));
         }
 
         // Fill collection with Student's objects
-        for (int i = 0; i < studentNamesBad.length; i++) {
-            studentList.add(new BadStudent(studentNamesBad[i]));
+        for (String studentName : studentNamesBad) {
+            studentList.add(new BadStudent(studentName));
         }
 
         // Fill collection with Teacher's objects
-        for (int i = 0; i < teacherNames.length; i++) {
-            teacherList.add(new MultiTeacher(teacherNames[i]));
+        for (String teacherName : teacherNames) {
+            teacherList.add(new MultiTeacher(teacherName));
         }
 
+
+        Room limitedRoom = new TrainingRoomLimited(6, teacherList.get(0));
+        Room unlimitedRoom = new TrainingRoomUnlimited(teacherList.get(1));
+
         // Allows Persons (Students, Teachers) to come into the room to study/teach the subgect
-        enterInToRoom(personList, limitedRoom, gitSubject);
-        enterInToRoom(personList, unlimitedRoom, cookingSubject);
+        enterInToLimitedRoom(studentList, limitedRoom, gitSubject);
+        enterInToUnLimitedRoom(studentList, unlimitedRoom, cookingSubject);
 
     }
 
@@ -53,20 +54,25 @@ public class App {
         someone.teach(someSubject);
     }
 
-    public static void enterInToRoom(List<Person> somePerson, Room someRoom, Subject someSubject) {
-
-        for (int i = 0; i < somePerson.size(); i++) {
-            boolean validEnterence = someRoom.accept(somePerson.get(i));
-
-            if (validEnterence) {
-                if (somePerson.get(i) instanceof Student) {
-                    go((Student) somePerson.get(i), someSubject);
-                    System.out.println("--------------------------------------");
-                } else {
-                    say((Teacher) somePerson.get(i), someSubject);
-                    System.out.println("--------------------------------------");
-                }
+    public static void enterInToLimitedRoom(List<Student> someStudent, Room someRoom, Subject someSubject) {
+        for (Student student : someStudent) {
+            someRoom.accept(student);
+            if (someRoom.getEnteredPerson().size() < someRoom.getSize()) {
+                go(student, someSubject);
+                System.out.println("--------------------------------------");
             }
         }
+        say(someRoom.getTeacher(), someSubject);
+        System.out.println("--------------------------------------");
+    }
+
+    public static void enterInToUnLimitedRoom(List<Student> someStudent, Room someRoom, Subject someSubject) {
+        for (Student student : someStudent) {
+            someRoom.accept(student);
+            go(student, someSubject);
+            System.out.println("--------------------------------------");
+        }
+        say(someRoom.getTeacher(), someSubject);
+        System.out.println("--------------------------------------");
     }
 }

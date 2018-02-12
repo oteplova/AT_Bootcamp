@@ -2,9 +2,18 @@ package net.comments.sample;
 
 //The interface represents a room.
 
+import java.util.List;
+
 public interface Room {
 
     // Returns if there is student and/or teacher in the room.
 
-    boolean accept(Person somePerson);
+    void accept(Person somePerson);
+
+    Teacher getTeacher();
+
+    int getSize();
+
+    List<Person> getEnteredPerson();
+
 }

@@ -7,37 +7,43 @@ import java.util.List;
 
 public class TrainingRoomLimited implements Room {
     private final int size;
-    List<Person> enteredPerson;
-    Teacher teacherInRoom = null;
+    private List<Person> enteredPerson;
+    private Teacher someteacher;
+
 
     // Allows to create a room with a given size
 
-    public TrainingRoomLimited(int size) {
+    public TrainingRoomLimited(int size, Teacher someTeacher) {
         enteredPerson = new ArrayList<Person>(size);
         this.size = size;
+        this.someteacher = someTeacher;
     }
 
     // Allows to come into the room. Only one teacher can be in the room.
 
-    public boolean accept(Person somePerson) {
-        if (somePerson instanceof Teacher && teacherInRoom == null) {
-            this.teacherInRoom = (Teacher) somePerson;
-            System.out.println("Teacher " + somePerson.getName() + " went into the room");
-            enteredPerson.add(this.teacherInRoom);
-            return true;
-        } else if (somePerson instanceof Student) {
+    public void accept(Person somePerson) {
+
             if (enteredPerson.size() < this.size - 1) {
                 System.out.println("Student " + somePerson.getName() + " went into the room");
                 enteredPerson.add(somePerson);
-                return true;
+
             } else {
                 System.out.println("We don’t learn a student if it is not in the room.");
                 System.out.println("--------------------------------------");
+                enteredPerson.add(somePerson);
             }
 
         }
-        return false;
+
+    public Teacher getTeacher() {
+        return this.someteacher;
     }
 
+    public int getSize() {
+        return this.size;
+    }
 
+    public List<Person> getEnteredPerson() {
+        return enteredPerson;
+    }
 }
