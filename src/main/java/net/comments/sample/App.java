@@ -12,6 +12,8 @@ public class App {
         String[] studentNamesBad = {"Anya", "Vova", "Zina"};
         String[] teacherNames = {"Ivan", "Petro"};
 
+        List<Student> studentList = new ArrayList();
+        List<Teacher> teacherList = new ArrayList();
         List<Person> personList = new ArrayList();
 
         Room limitedRoom = new TrainingRoomLimited(6);
@@ -22,17 +24,17 @@ public class App {
 
         // Fill collection with Student's objects
         for (int i = 0; i < studentNamesAttentive.length; i++) {
-            personList.add(new AttentiveStudent(studentNamesAttentive[i]));
+            studentList.add(new AttentiveStudent(studentNamesAttentive[i]));
         }
 
         // Fill collection with Student's objects
         for (int i = 0; i < studentNamesBad.length; i++) {
-            personList.add(new BadStudent(studentNamesBad[i]));
+            studentList.add(new BadStudent(studentNamesBad[i]));
         }
 
         // Fill collection with Teacher's objects
         for (int i = 0; i < teacherNames.length; i++) {
-            personList.add(new MultiTeacher(teacherNames[i]));
+            teacherList.add(new MultiTeacher(teacherNames[i]));
         }
 
         // Allows Persons (Students, Teachers) to come into the room to study/teach the subgect

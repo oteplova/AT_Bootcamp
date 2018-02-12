@@ -7,7 +7,7 @@ import java.util.List;
 
 public class TrainingRoomLimited implements Room {
     private final int size;
-    List<Person> enteredPerson = null;
+    List<Person> enteredPerson;
     Teacher teacherInRoom = null;
 
     // Allows to create a room with a given size

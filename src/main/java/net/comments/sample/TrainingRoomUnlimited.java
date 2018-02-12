@@ -4,7 +4,7 @@ package net.comments.sample;
 
 public class TrainingRoomUnlimited implements Room {
 
-    Teacher teacherInRoom = null;
+    private Teacher teacherInRoom = null;
 
 // Allows to come into the room. Only one teacher can be in the room.
 
