@@ -21,13 +21,8 @@ public class TrainingRoomLimited implements Room {
     public void accept(Person somePerson) {
 
         if (enteredPerson.size() < this.size) {
-            if (somePerson instanceof Student) {
-                System.out.println("Student " + somePerson.getName() + " went into the room");
+            System.out.println(somePerson.getName() + " went into the room");
                 enteredPerson.add(somePerson);
-            } else if (somePerson instanceof Teacher) {
-                System.out.println("Teacher " + somePerson.getName() + " went into the room");
-                enteredPerson.add(somePerson);
-            }
             } else {
                 System.out.println("We don’t learn a student if it is not in the room.");
                 System.out.println("--------------------------------------");
