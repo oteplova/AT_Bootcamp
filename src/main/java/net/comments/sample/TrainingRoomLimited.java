@@ -7,26 +7,27 @@ import java.util.List;
 
 public class TrainingRoomLimited implements Room {
     private final int size;
-    private List<Person> enteredPerson;
-    private Teacher someteacher;
-
+    private final List<Person> enteredPerson;
 
     // Allows to create a room with a given size
 
-    public TrainingRoomLimited(int size, Teacher someTeacher) {
+    public TrainingRoomLimited(int size) {
         enteredPerson = new ArrayList<Person>(size);
         this.size = size;
-        this.someteacher = someTeacher;
     }
 
-    // Allows to come into the room. Only one teacher can be in the room.
+    // Allows to come into the room.
 
     public void accept(Person somePerson) {
 
-            if (enteredPerson.size() < this.size - 1) {
+        if (enteredPerson.size() < this.size) {
+            if (somePerson instanceof Student) {
                 System.out.println("Student " + somePerson.getName() + " went into the room");
                 enteredPerson.add(somePerson);
-
+            } else if (somePerson instanceof Teacher) {
+                System.out.println("Teacher " + somePerson.getName() + " went into the room");
+                enteredPerson.add(somePerson);
+            }
             } else {
                 System.out.println("We don’t learn a student if it is not in the room.");
                 System.out.println("--------------------------------------");
@@ -34,10 +35,6 @@ public class TrainingRoomLimited implements Room {
             }
 
         }
-
-    public Teacher getTeacher() {
-        return this.someteacher;
-    }
 
     public List<Person> getEnteredPerson() {
         return enteredPerson;

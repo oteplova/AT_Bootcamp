@@ -10,8 +10,6 @@ public interface Room {
 
     void accept(Person somePerson);
 
-    Teacher getTeacher();
-
     List<Person> getEnteredPerson();
 
 }
