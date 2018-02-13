@@ -18,7 +18,7 @@ public class TrainingRoomUnlimited implements Room {
 
     public void accept(Person somePerson) {
 
-        System.out.println("Student " + somePerson.getName() + " went into the room");
+        System.out.println(somePerson.getName() + " went into the room");
         enteredPerson.add(somePerson);
     }
 
