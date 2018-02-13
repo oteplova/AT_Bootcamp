@@ -27,10 +27,6 @@ public class TrainingRoomUnlimited implements Room {
         return this.someTeacher;
     }
 
-    public int getSize() {
-        return 0;
-    }
-
     public List<Person> getEnteredPerson() {
         return enteredPerson;
     }

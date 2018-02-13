@@ -30,17 +30,13 @@ public class TrainingRoomLimited implements Room {
             } else {
                 System.out.println("We don’t learn a student if it is not in the room.");
                 System.out.println("--------------------------------------");
-                enteredPerson.add(somePerson);
+                //enteredPerson.add(somePerson);
             }
 
         }
 
     public Teacher getTeacher() {
         return this.someteacher;
-    }
-
-    public int getSize() {
-        return this.size;
     }
 
     public List<Person> getEnteredPerson() {

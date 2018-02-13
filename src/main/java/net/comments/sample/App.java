@@ -39,40 +39,32 @@ public class App {
         Room unlimitedRoom = new TrainingRoomUnlimited(teacherList.get(1));
 
         // Allows Persons (Students, Teachers) to come into the room to study/teach the subgect
-        enterInToLimitedRoom(studentList, limitedRoom, gitSubject);
-        enterInToUnLimitedRoom(studentList, unlimitedRoom, cookingSubject);
+        enterInToRoom(studentList, limitedRoom, gitSubject);
+        enterInToRoom(studentList, unlimitedRoom, cookingSubject);
 
     }
 
-    public static void go(Student someone, Subject someSubject) {
+    private static void go(Student someone, Subject someSubject) {
         System.out.println(String.format("There is %s in the room!", someone.getName()));
         someone.learn(someSubject);
     }
 
-    public static void say(Teacher someone, Subject someSubject) {
+    private static void say(Teacher someone, Subject someSubject) {
         System.out.println(String.format("There is the teacher %s in the room!", someone.getName()));
         someone.teach(someSubject);
     }
 
-    public static void enterInToLimitedRoom(List<Student> someStudent, Room someRoom, Subject someSubject) {
+    private static void enterInToRoom(List<Student> someStudent, Room someRoom, Subject someSubject) {
         for (Student student : someStudent) {
             someRoom.accept(student);
-            if (someRoom.getEnteredPerson().size() < someRoom.getSize()) {
-                go(student, someSubject);
-                System.out.println("--------------------------------------");
-            }
+            System.out.println("--------------------------------------");
         }
-        say(someRoom.getTeacher(), someSubject);
-        System.out.println("--------------------------------------");
-    }
-
-    public static void enterInToUnLimitedRoom(List<Student> someStudent, Room someRoom, Subject someSubject) {
-        for (Student student : someStudent) {
-            someRoom.accept(student);
-            go(student, someSubject);
+        for (Person someperson : someRoom.getEnteredPerson()) {
+            go((Student) someperson, someSubject);
             System.out.println("--------------------------------------");
         }
         say(someRoom.getTeacher(), someSubject);
         System.out.println("--------------------------------------");
     }
+
 }

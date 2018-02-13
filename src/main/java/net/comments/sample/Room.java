@@ -12,8 +12,6 @@ public interface Room {
 
     Teacher getTeacher();
 
-    int getSize();
-
     List<Person> getEnteredPerson();
 
 }
