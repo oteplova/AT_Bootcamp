@@ -16,8 +16,8 @@ public class App {
         List<Teacher> teacherList = new ArrayList();
 //        List<Person> personList = new ArrayList();
 
-        Subject gitSubject = new GeneralSubject("use git");
-        Subject cookingSubject = new GeneralSubject("bake a cake");
+        Subject gitSubject = new TechSubject();
+        Subject cookingSubject = new CookerySubject();
 
         Room limitedRoom = new TrainingRoomLimited(6);
         Room unlimitedRoom = new TrainingRoomUnlimited();

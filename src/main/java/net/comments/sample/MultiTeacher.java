@@ -22,5 +22,6 @@ public class MultiTeacher implements Teacher {
 
     public void teach(Subject someSubject) {
         System.out.println(this.name + " teaches how to " + someSubject.getSubjectName());
+        someSubject.readBy(this);
     }
 }
