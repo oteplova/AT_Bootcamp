@@ -7,24 +7,19 @@ import java.util.List;
 
 public class TrainingRoomUnlimited implements Room {
     private Teacher someTeacher;
-    private List<Person> enteredPerson;
+    private final List<Person> enteredPerson;
 
-    public TrainingRoomUnlimited(Teacher someTeacher) {
-        this.someTeacher = someTeacher;
+    public TrainingRoomUnlimited() {
         enteredPerson = new ArrayList<Person>();
 
     }
 
-    // Allows to come into the room. Only one teacher can be in the room.
+    // Allows to come into the room.
 
     public void accept(Person somePerson) {
 
         System.out.println("Student " + somePerson.getName() + " went into the room");
         enteredPerson.add(somePerson);
-    }
-
-    public Teacher getTeacher() {
-        return this.someTeacher;
     }
 
     public List<Person> getEnteredPerson() {
