@@ -1,12 +1,15 @@
 package net.comments.sample;
 
-//Class represents subjects.
+/**
+ * Class represents the technical subjects.
+ */
 
 public class TechSubject implements Subject {
     private final String subjectName = "use Git";
 
-    // Returns subject's name
-
+    /**
+     * Returns subject's name
+     */
     public String getSubjectName() {
         return this.subjectName;
     }
@@ -25,6 +28,5 @@ public class TechSubject implements Subject {
         System.out.println("2. how Git tracks code changes;");
         System.out.println("3. how to install and configure the system;");
         System.out.println("4. how to create branches, merge them and fix conflicts in the code;");
-
     }
 }

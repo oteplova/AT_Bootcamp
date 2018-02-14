@@ -1,10 +1,14 @@
 package net.comments.sample;
 
+/**
+ * Class represents the technical subjects.
+ */
 public class CookerySubject implements Subject {
     private final String subjectName = "bake a cake";
 
-    // Returns subject's name
-
+    /**
+     * Returns subject's name
+     */
     public String getSubjectName() {
         return this.subjectName;
     }
@@ -17,7 +21,6 @@ public class CookerySubject implements Subject {
         System.out.println("4. how to bake shortcakes;");
         System.out.println("5. how to prepare the cream;");
         System.out.println("6. how to decorate the cake;");
-
     }
 
     public void learnBy(Student someStudent) {
@@ -28,6 +31,5 @@ public class CookerySubject implements Subject {
         System.out.println("4. how to bake shortcakes;");
         System.out.println("5. how to prepare the cream;");
         System.out.println("6. how to decorate the cake;");
-
     }
 }
