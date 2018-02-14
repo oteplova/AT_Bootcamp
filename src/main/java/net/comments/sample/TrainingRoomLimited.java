@@ -22,14 +22,11 @@ public class TrainingRoomLimited implements Room {
 
         if (enteredPerson.size() < this.size) {
             System.out.println(somePerson.getName() + " went into the room");
-                enteredPerson.add(somePerson);
-            } else {
-                System.out.println("We don’t learn a student if it is not in the room.");
-                System.out.println("--------------------------------------");
-                //enteredPerson.add(somePerson);
-            }
-
+            enteredPerson.add(somePerson);
+        } else {
+            System.out.println(somePerson.getName() + " cannot enter into the room due to all seats are occupied");
         }
+    }
 
     public List<Person> getEnteredPerson() {
         return enteredPerson;
