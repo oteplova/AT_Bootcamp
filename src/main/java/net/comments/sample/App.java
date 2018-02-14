@@ -14,7 +14,6 @@ public class App {
 
         List<Student> studentList = new ArrayList();
         List<Teacher> teacherList = new ArrayList();
-//        List<Person> personList = new ArrayList();
 
         Subject gitSubject = new GeneralSubject("use git");
         Subject cookingSubject = new GeneralSubject("bake a cake");
@@ -40,7 +39,6 @@ public class App {
         // Allows Persons (Students, Teachers) to come into the room to study/teach the subgect
         enterInToRoom(studentList, teacherList, limitedRoom, gitSubject);
         enterInToRoom(studentList, teacherList, unlimitedRoom, cookingSubject);
-
     }
 
     private static void go(Student someone, Subject someSubject) {
@@ -74,5 +72,4 @@ public class App {
             }
         }
     }
-
 }

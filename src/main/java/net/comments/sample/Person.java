@@ -1,10 +1,13 @@
 package net.comments.sample;
 
-// The interface represents a person.
+/**
+ * The interface represents a person.
+ */
 
 public interface Person {
 
-    // Returns person's name
-
+    /**
+     * Returns person's name
+     */
     String getName();
 }
