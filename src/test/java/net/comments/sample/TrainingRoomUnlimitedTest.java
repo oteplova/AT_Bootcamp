@@ -29,7 +29,7 @@ public class TrainingRoomUnlimitedTest {
         enteredPerson.add(teacher2);
 
         MatcherAssert.assertThat(enteredPerson, IsIterableContainingInOrder.contains(student1, student2, student3, student4, teacher1, teacher2));
-        MatcherAssert.assertThat(enteredPerson, IsIterableContainingInAnyOrder.containsInAnyOrder(teacher1, student3, student1, student4, student2, teacher2));
+
     }
 
     @Test
