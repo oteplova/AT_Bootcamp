@@ -7,6 +7,8 @@ package net.comments.sample;
 public interface Student extends Person {
     /**
      * Allows to study some subject.
+     *
+     * @param someSubject
      */
     void learn(Subject someSubject);
 }

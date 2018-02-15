@@ -1,9 +1,6 @@
 package net.comments.sample;
 
 /**
- * Class represents the concrete teacher
- */
-/**
  * Class represents the teacher
  */
 
@@ -19,8 +16,6 @@ public class MultiTeacher implements Teacher {
 
     /**
      * Return Teacher's name
-     *
-     * @return
      */
     public String getName() {
         return this.name;

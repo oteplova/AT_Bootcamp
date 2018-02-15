@@ -1,7 +1,7 @@
 package net.comments.sample;
 
 /**
- * Class represents the technical subjects.
+ * Class represents the humanitarian subjects.
  */
 public class CookerySubject implements Subject {
     private final String subjectName = "bake a cake";
