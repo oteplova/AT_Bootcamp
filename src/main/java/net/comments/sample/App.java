@@ -14,7 +14,6 @@ public class App {
 
         List<Student> studentList = new ArrayList();
         List<Teacher> teacherList = new ArrayList();
-//        List<Person> personList = new ArrayList();
 
         Subject gitSubject = new TechSubject();
         Subject cookingSubject = new CookerySubject();
@@ -74,5 +73,4 @@ public class App {
             }
         }
     }
-
 }
