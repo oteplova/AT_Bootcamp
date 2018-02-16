@@ -13,6 +13,8 @@ public class TrainingRoomLimited implements Room {
 
     /**
      * Allows to create a room with a given size
+     *
+     * @param size
      */
     public TrainingRoomLimited(int size) {
         enteredPerson = new ArrayList<Person>(size);
@@ -20,7 +22,6 @@ public class TrainingRoomLimited implements Room {
     }
 
     public void accept(Person somePerson) {
-
         if (enteredPerson.size() < this.size) {
             System.out.println(somePerson.getName() + " went into the room");
             enteredPerson.add(somePerson);
