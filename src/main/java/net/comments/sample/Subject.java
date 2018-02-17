@@ -10,4 +10,18 @@ public interface Subject {
      */
     String getSubjectName();
 
+    /**
+     * Allows to teach a subject using programm
+     *
+     * @param someTeacher
+     */
+    void readBy(Teacher someTeacher);
+
+    /**
+     * Allows to learn a subject using programm
+     *
+     * @param someStudent
+     */
+    void learnBy(Student someStudent);
+
 }

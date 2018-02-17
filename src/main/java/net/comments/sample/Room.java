@@ -9,13 +9,13 @@ import java.util.List;
 public interface Room {
     /**
      * Allows person to come into the room.
+     *
+     * @param somePerson
      */
     void accept(Person somePerson);
 
     /**
-     * Retuns list of persons which came into the room
-     *
-     * @return
+     * Returns list of persons which came into the room
      */
     List<Person> getEnteredPerson();
 

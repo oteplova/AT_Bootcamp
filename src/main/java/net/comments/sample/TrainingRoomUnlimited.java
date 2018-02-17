@@ -9,7 +9,6 @@ import java.util.List;
 
 public class TrainingRoomUnlimited implements Room {
     private final List<Person> enteredPerson;
-    private Teacher someTeacher;
 
     public TrainingRoomUnlimited() {
         enteredPerson = new ArrayList<Person>();

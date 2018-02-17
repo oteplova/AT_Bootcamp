@@ -16,12 +16,10 @@ public class BadStudent implements Student {
         this.name = name;
     }
 
-    // Allows to study the given subject
     public void learn(Subject someSubject) {
         System.out.println(this.name + " is slipping");
     }
 
-    // Return  BadStudent's name
     public String getName() {
         return this.name;
     }
