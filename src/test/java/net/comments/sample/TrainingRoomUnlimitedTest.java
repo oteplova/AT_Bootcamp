@@ -52,5 +52,4 @@ public class TrainingRoomUnlimitedTest {
 
         MatcherAssert.assertThat(enteredPerson, IsIterableContainingInAnyOrder.containsInAnyOrder(teacher1, student3, student1, student4, student2, teacher2));
     }
-
 }
