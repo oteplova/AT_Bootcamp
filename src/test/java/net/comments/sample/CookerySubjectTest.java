@@ -4,10 +4,10 @@ import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
-public class GeneralSubjectTest {
+public class CookerySubjectTest {
 
     @Test
     public void testGetSubjectName() {
-        MatcherAssert.assertThat(new GeneralSubject("Math").getSubjectName(), Matchers.is("Math"));
+        MatcherAssert.assertThat(new CookerySubject().getSubjectName(), Matchers.is("bake a cake"));
     }
 }
