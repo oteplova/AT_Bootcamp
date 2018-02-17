@@ -10,5 +10,4 @@ public class MultiTeacherTest {
     public void testGetName() {
         MatcherAssert.assertThat(new MultiTeacher("Valentin").getName(), Matchers.is("Valentin"));
     }
-
 }
