@@ -5,6 +5,6 @@ public interface CommentActions {
 
     void edit(String comments);
 
-    void delete(String comments);
+    void delete(int commentsNumber);
 
 }

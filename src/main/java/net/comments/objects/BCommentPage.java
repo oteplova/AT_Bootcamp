@@ -19,11 +19,11 @@ public class BCommentPage implements CommentPage {
     }
 
     public CommentActions getCommentAction() {
-        return new BCommentActions();
+        return new BCommentActions(driver);
     }
 
     public CommentTable getCurrentComments() {
-        return new BCommentTable();
+        return new BCommentTable(driver);
     }
 
     public CommentTable getCommentsFrom(int page) {
