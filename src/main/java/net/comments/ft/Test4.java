@@ -1,37 +1,24 @@
 package net.comments.ft;
 
-import org.hamcrest.MatcherAssert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import net.comments.objects.BCommentPage;
+import net.comments.objects.CommentPage;
 import org.testng.annotations.Test;
 
-public class Test4 {
-    private final WebDriver[] driver = new WebDriver[1];
+public class Test4 extends BaseDriver {
+    private final CommentPage page;
+
+    public Test4() {
+        this.page = new BCommentPage(this.driver);
+    }
 
     @Test
     public void test() {
-        this.driver().get("http://commentssprintone.azurewebsites.net");
-        this.driver().findElements(By.name("SelectedId")).get(0).click();
-        this.driver().findElement(By.xpath("//*[@value=\"Delete\"]")).click();
-        this.driver().findElement(By.xpath("//span[text()=\"Yes\"]")).click();
-        final String page = this.driver().getPageSource();
-        MatcherAssert.assertThat("Comment Text 0 is present", !page.contains("Comment Text 0"));
-    }
+        page.open();
+        page.newComment();
 
-    @BeforeMethod
-    public void createDriver() {
-        driver[0] = new FirefoxDriver();
-    }
-
-    @AfterMethod
-    public void closeDriver() {
-        driver[0].close();
-    }
-
-    private WebDriver driver() {
-        return this.driver[0];
+//        this.driver().findElement(By.xpath("//*[@value=\"Delete\"]")).click();
+//        this.driver().findElement(By.xpath("//span[text()=\"Yes\"]")).click();
+//        final String page = this.driver().getPageSource();
+//        MatcherAssert.assertThat("Comment Text 0 is present", !page.contains("Comment Text 0"));
     }
 }
