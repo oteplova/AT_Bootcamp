@@ -1,14 +1,17 @@
 package net.comments.ft;
 
 import net.comments.objects.*;
+import org.hamcrest.MatcherAssert;
 import org.testng.annotations.Test;
 
 public class Test4 extends BaseDriver {
     private final CommentPage page;
     private final CommentActions action;
     private final BCommentTable table;
+    private int commentID;
 
     public Test4() {
+        super();
         this.page = new BCommentPage(this.driver);
         this.action = new BCommentActions(this.driver);
         this.table = new BCommentTable(this.driver);
@@ -17,12 +20,12 @@ public class Test4 extends BaseDriver {
     @Test
     public void test() {
         page.open();
-        action.delete(1);
+        commentID = 1;
+        action.delete(commentID);
         table.setCommentsTable();
 
-
-//
-//        final String page = this.driver().getPageSource();
-//        MatcherAssert.assertThat("Comment Text 0 is present", !page.contains("Comment Text 0"));
+        for (BComment comment : table.getCommentsTable()) {
+            MatcherAssert.assertThat("Comment Text " + commentID + " is present", comment.getCommentNumber().contains(String.valueOf(commentID)));
+        }
     }
 }
