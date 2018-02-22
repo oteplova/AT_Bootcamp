@@ -1,15 +1,19 @@
 package net.comments.objects;
 
 public class BComment {
-    final String commentNumber;
-    final String commentText;
-    final String commentActivation;
-    final String commentCategories;
+    private final String commentNumber;
+    private final String commentText;
+    private final String commentActivation;
+    private final String commentCategories;
 
     public BComment(String commentNumber, String commentText, String commentActivation, String commentCategories) {
         this.commentNumber = commentNumber;
         this.commentText = commentText;
         this.commentActivation = commentActivation;
         this.commentCategories = commentCategories;
+    }
+
+    public String getCommentNumber() {
+        return this.commentNumber;
     }
 }
