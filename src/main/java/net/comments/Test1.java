@@ -13,12 +13,12 @@ public class Test1 {
 
     @Test
     public void test() {
-        final String page = this.driver().getPageSource();
-        String commentsText = "Test text";
-        String number = "31";
-        String savedNumber, savedCommentsText, inactivationSign, categoryName;
+        final String page;
+        final String commentsText = "Test text";
+        final String number = "31";
 
         driver().get("http://commentssprintone.azurewebsites.net");
+        page = this.driver().getPageSource();
         driver().findElement(By.id("newbutton")).click();
         driver().findElement(By.id("Text")).sendKeys(commentsText);
         driver().findElement(By.id("Number")).sendKeys(number);
@@ -27,17 +27,13 @@ public class Test1 {
         driver().findElement(By.xpath("//*[@value=\"Save & Return\"]")).click();
         driver().findElement(By.linkText("4")).click();
         MatcherAssert.assertThat("Comment is not present on the page", !page.contains(commentsText));
-
-        savedNumber = driver().findElement(By.xpath("//*[@id = 'main']//tr[1]//td[2]")).getText();
+        String savedNumber = driver().findElement(By.xpath("//*[@id = 'main']//tr[1]//td[2]")).getText();
         MatcherAssert.assertThat("Number is not " + number, savedNumber.contains(number));
-
-        savedCommentsText = driver().findElement(By.xpath("//*[@id = 'main']//tr[1]//td[3]")).getText();
-        MatcherAssert.assertThat("Comments text does not contain " + savedCommentsText, savedCommentsText.contains(savedCommentsText));
-
-        inactivationSign = driver().findElement(By.xpath("//*[@id = 'main']//tr[1]//td[4]")).getText();
+        String savedCommentsText = driver().findElement(By.xpath("//*[@id = 'main']//tr[1]//td[3]")).getText();
+        MatcherAssert.assertThat("Comments text does not contain " + savedCommentsText, savedCommentsText.contains(commentsText));
+        String inactivationSign = driver().findElement(By.xpath("//*[@id = 'main']//tr[1]//td[4]")).getText();
         MatcherAssert.assertThat("Inactive column contains 'tick' sign", !inactivationSign.contains("V"));
-
-        categoryName = driver().findElement(By.xpath("//*[@id = 'main']//tr[1]//td[5]")).getText();
+        String categoryName = driver().findElement(By.xpath("//*[@id = 'main']//tr[1]//td[5]")).getText();
         MatcherAssert.assertThat("Category column does not corresponds to saved", categoryName.contains("Cat0"));
     }
 
