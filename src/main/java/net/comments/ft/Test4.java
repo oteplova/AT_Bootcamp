@@ -25,7 +25,7 @@ public class Test4 extends BaseDriver {
         table.setCommentsTable();
 
         for (BComment comment : table.getCommentsTable()) {
-            MatcherAssert.assertThat("Comment Text " + commentID + " is present", comment.getCommentNumber().contains(String.valueOf(commentID)));
+            MatcherAssert.assertThat("Comment Text " + commentID + " is present", !comment.getCommentNumber().contentEquals(String.valueOf(commentID)));
         }
     }
 }
