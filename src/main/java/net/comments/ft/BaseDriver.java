@@ -18,6 +18,6 @@ public class BaseDriver {
 
     @AfterMethod
     public void closeDriver() {
-        //       this.driver.close();
+        this.driver.close();
     }
 }

@@ -23,7 +23,6 @@ public class Test4 extends BaseDriver {
         commentID = 1;
         action.delete(commentID);
         table.setCommentsTable();
-
         for (BComment comment : table.getCommentsTable()) {
             MatcherAssert.assertThat("Comment Text " + commentID + " is present", !comment.getCommentNumber().contentEquals(String.valueOf(commentID)));
         }
