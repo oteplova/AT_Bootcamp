@@ -16,4 +16,8 @@ public class BComment {
     public String getCommentNumber() {
         return this.commentNumber;
     }
+
+    public String getCommentText() {
+        return this.commentText;
+    }
 }
