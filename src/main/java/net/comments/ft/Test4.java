@@ -8,7 +8,6 @@ public class Test4 extends BaseDriver {
     private final CommentPage page;
     private final CommentActions action;
     private final BCommentTable table;
-    private int commentID;
 
     public Test4() {
         super();
@@ -19,11 +18,11 @@ public class Test4 extends BaseDriver {
 
     @Test
     public void test() {
+        int commentID = 1;
         page.open();
-        commentID = 1;
         action.delete(commentID);
-        table.setCommentsTable();
-        for (BComment comment : table.getCommentsTable()) {
+        table.fillTable();
+        for (Comment comment : table.getTableComments()) {
             MatcherAssert.assertThat("Comment Text " + commentID + " is present", !comment.getCommentNumber().contentEquals(String.valueOf(commentID)));
         }
     }

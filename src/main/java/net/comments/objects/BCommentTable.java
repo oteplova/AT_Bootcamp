@@ -8,18 +8,18 @@ import java.util.List;
 
 public class BCommentTable implements CommentTable {
     private final WebDriver driver;
-    private List<BComment> commentsList;
+    private List<Comment> commentsList;
 
     public BCommentTable(WebDriver driver) {
         this.driver = driver;
-        commentsList = new ArrayList<BComment>();
+        commentsList = new ArrayList<Comment>();
     }
 
     public void selectComment(int commentsNumber) {
         this.driver.findElements(By.name("SelectedId")).get(commentsNumber).click();
     }
 
-    public void setCommentsTable() {
+    public void fillTable() {
         String commentNumber;
         String commentText;
         String commentActivation;
@@ -33,11 +33,11 @@ public class BCommentTable implements CommentTable {
                 commentActivation = "active";
             }
             commentCategories = this.driver.findElement(By.xpath("//*[@class = \"webgrid\"]//tr[" + i + "]//td[5]")).getText();
-            this.commentsList.add(new BComment(commentNumber, commentText, commentActivation, commentCategories));
+            this.commentsList.add(new Comment(commentNumber, commentText, commentActivation, commentCategories));
         }
     }
 
-    public List<BComment> getCommentsTable() {
+    public List<Comment> getTableComments() {
         return commentsList;
     }
 }
