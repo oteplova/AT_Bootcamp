@@ -19,12 +19,11 @@ public class BCommentTable implements CommentTable {
         this.driver.findElements(By.name("SelectedId")).get(commentsNumber).click();
     }
 
-    public void fillTable() {
+    public List<Comment> getComments() {
         String commentNumber;
         String commentText;
         String commentActivation;
         String commentCategories;
-
         for (int i = 1; i <= 10; i++) {
             commentNumber = this.driver.findElement(By.xpath("//*[@class = \"webgrid\"]//tr[" + i + "]//td[2]")).getText();
             commentText = this.driver.findElement(By.xpath("//*[@class = \"webgrid\"]//tr[" + i + "]//td[3]")).getText();
@@ -35,9 +34,6 @@ public class BCommentTable implements CommentTable {
             commentCategories = this.driver.findElement(By.xpath("//*[@class = \"webgrid\"]//tr[" + i + "]//td[5]")).getText();
             this.commentsList.add(new Comment(commentNumber, commentText, commentActivation, commentCategories));
         }
-    }
-
-    public List<Comment> getTableComments() {
         return commentsList;
     }
 }
