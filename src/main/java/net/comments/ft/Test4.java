@@ -1,28 +1,28 @@
 package net.comments.ft;
 
-import net.comments.objects.*;
+import net.comments.objects.BCommentPage;
+import net.comments.objects.Comment;
+import net.comments.objects.CommentPage;
+import net.comments.objects.CommentTable;
 import org.hamcrest.MatcherAssert;
 import org.testng.annotations.Test;
 
 public class Test4 extends BaseDriver {
     private final CommentPage page;
-    private final CommentActions action;
-    private final BCommentTable table;
 
     public Test4() {
         super();
         this.page = new BCommentPage(this.driver);
-        this.action = new BCommentActions(this.driver);
-        this.table = new BCommentTable(this.driver);
     }
 
     @Test
     public void test() {
         int commentID = 1;
+        CommentTable commentTable = page.getCurrentComments();
         page.open();
-        action.delete(commentID);
-        table.fillTable();
-        for (Comment comment : table.getTableComments()) {
+        commentTable.selectComment(commentID);
+        page.getCommentAction().delete();
+        for (Comment comment : commentTable.getComments()) {
             MatcherAssert.assertThat("Comment Text " + commentID + " is present", !comment.getCommentNumber().contentEquals(String.valueOf(commentID)));
         }
     }

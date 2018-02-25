@@ -19,6 +19,7 @@ public class BCommentPage implements CommentPage {
     }
 
     public CommentActions getCommentAction() {
+
         return new BCommentActions(driver);
     }
 
