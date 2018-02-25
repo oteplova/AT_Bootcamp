@@ -20,8 +20,7 @@ public class BCommentActions implements CommentActions {
         throw new UnsupportedOperationException("Please implement");
     }
 
-    public void delete(int commentsNumber) {
-        selectedItem.selectComment(commentsNumber);
+    public void delete() {
         this.driver.findElement(By.xpath("//*[@value=\"Delete\"]")).click();
         this.driver.findElement(By.xpath("//span[text()=\"Yes\"]")).click();
     }
