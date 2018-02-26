@@ -13,7 +13,4 @@ public class BCommentManagerDuplicate implements CommentManager {
         throw new UnsupportedOperationException("Please implement");
     }
 
-    public void fillFields() {
-        throw new UnsupportedOperationException("Please implement");
-    }
 }

@@ -12,8 +12,4 @@ public class BCommentManagerEdit implements CommentManager {
     public void saveAndReturn() {
         throw new UnsupportedOperationException("Please implement");
     }
-
-    public void fillFields() {
-        throw new UnsupportedOperationException("Please implement");
-    }
 }

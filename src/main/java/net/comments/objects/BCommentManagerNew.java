@@ -19,14 +19,10 @@ public class BCommentManagerNew implements CommentManager {
     }
 
     public void saveAndReturn() {
-        fillFields();
-        driver.findElement(By.xpath("//*[@value=\"Save & Return\"]")).click();
-    }
-
-    public void fillFields() {
         driver.findElement(By.id("Text")).sendKeys("Test Text");
         driver.findElement(By.id("Number")).sendKeys("111");
         driver.findElement(By.xpath("//[@id = \"Categoties\" and @value = \"1\"]")).click();
         driver.findElement(By.xpath("//*[@value=\">\"]")).click();
+        driver.findElement(By.xpath("//*[@value=\"Save & Return\"]")).click();
     }
 }
