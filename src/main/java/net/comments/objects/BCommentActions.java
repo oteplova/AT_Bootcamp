@@ -5,11 +5,9 @@ import org.openqa.selenium.WebDriver;
 
 public class BCommentActions implements CommentActions {
     private final WebDriver driver;
-    private CommentTable selectedItem;
 
     public BCommentActions(WebDriver driver) {
         this.driver = driver;
-        selectedItem = new BCommentTable(driver);
     }
 
     public void duplicate(String comments) {
