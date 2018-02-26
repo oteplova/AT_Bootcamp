@@ -30,6 +30,10 @@ public class BCommentPage implements CommentPage {
         throw new UnsupportedOperationException("Please implement");
     }
 
+    public Pagination getPagination() {
+        return new Pagination(driver);
+    }
+
     public int getCommentPageSize() {
         throw new UnsupportedOperationException("Please implement");
     }
