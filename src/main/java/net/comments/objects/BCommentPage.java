@@ -37,4 +37,8 @@ public class BCommentPage implements CommentPage {
     public int getCommentPageSize() {
         throw new UnsupportedOperationException("Please implement");
     }
+
+    public BCommentManagerNew getCommentManagerNew() {
+        return new BCommentManagerNew(driver);
+    }
 }
