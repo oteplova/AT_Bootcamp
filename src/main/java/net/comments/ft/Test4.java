@@ -17,9 +17,9 @@ public class Test4 extends BaseDriver {
 
     @Test
     public void test() {
-        int commentID = 1;
-        CommentTable commentTable = page.getCurrentComments();
         page.open();
+        CommentTable commentTable = page.getCurrentComments();
+        int commentID = 1;
         commentTable.selectComment(commentID);
         page.getCommentAction().delete();
         for (Comment comment : commentTable.getComments()) {
