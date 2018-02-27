@@ -18,10 +18,13 @@ public class BCommentManagerNew implements CommentManager {
         throw new UnsupportedOperationException("Please implement");
     }
 
-    public void saveAndReturn() {
-        driver.findElement(By.id("Text")).sendKeys("Test Text");
-        driver.findElement(By.id("Number")).sendKeys("111");
-        driver.findElement(By.xpath("//*[@id = \"Categories\" and @value = \"1\"]")).click();
+    public void saveAndReturn(String number, String text, String state, String categoryNumber) {
+        driver.findElement(By.id("Text")).sendKeys(text);
+        driver.findElement(By.id("Number")).sendKeys(number);
+        if (state == "active" && !this.driver.findElement(By.id("Active")).isSelected()) {
+            driver.findElement(By.id("//*[@id =\"Active\"]")).click();
+        }
+        driver.findElement(By.xpath(String.format("//*[@id = \"Categories\" and @value = \"%s\"]", categoryNumber))).click();
         driver.findElement(By.xpath("//*[@value=\">\"]")).click();
         driver.findElement(By.xpath("//*[@value=\"Save & Return\"]")).click();
     }

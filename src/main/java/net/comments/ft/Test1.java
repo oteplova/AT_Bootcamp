@@ -18,15 +18,12 @@ public class Test1 extends BaseDriver {
     public void test() {
         page.open();
         page.newComment();
-        page.getCommentManagerNew().saveAndReturn();
+        String commentNumber = "111";
+        page.getCommentManagerNew().saveAndReturn(commentNumber, "Test Text", "active", "1");
         page.getPagination().navigateTo("4");
         CommentTable commentTable = page.getCurrentComments();
-        int commentNumber = 111;
         for (Comment comment : commentTable.getComments()) {
-            MatcherAssert.assertThat("Comment Text " + commentNumber + " is present", !comment.getCommentNumber().contentEquals(String.valueOf(commentNumber)));
+            MatcherAssert.assertThat("Comment Text " + commentNumber + " is present", comment.getCommentNumber().contentEquals(commentNumber));
         }
-
-
-
     }
 }
