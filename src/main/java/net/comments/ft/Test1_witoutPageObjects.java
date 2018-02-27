@@ -8,7 +8,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class Test1 {
+public class Test1_witoutPageObjects {
     private final WebDriver[] driver = new WebDriver[1];
 
     @Test

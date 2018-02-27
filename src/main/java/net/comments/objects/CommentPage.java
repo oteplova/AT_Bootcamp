@@ -6,5 +6,4 @@ public interface CommentPage {
     CommentActions getCommentAction();
     CommentTable getCurrentComments();
     CommentTable getCommentsFrom(int page);
-    int getCommentPageSize();
 }

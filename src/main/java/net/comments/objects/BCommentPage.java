@@ -29,8 +29,4 @@ public class BCommentPage implements CommentPage {
     public CommentTable getCommentsFrom(int page) {
         throw new UnsupportedOperationException("Please implement");
     }
-
-    public int getCommentPageSize() {
-        throw new UnsupportedOperationException("Please implement");
-    }
 }
