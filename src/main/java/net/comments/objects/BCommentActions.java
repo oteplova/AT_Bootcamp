@@ -10,8 +10,18 @@ public class BCommentActions implements CommentActions {
         this.driver = driver;
     }
 
-    public void duplicate(String comments) {
-        throw new UnsupportedOperationException("Please implement");
+    public void duplicate(String commentNumber) {
+        BCommentManagerDuplicate commentDuplicate = new BCommentManagerDuplicate(driver);
+        this.driver.findElement(By.xpath("//*[@value=\"Duplicate...\"]")).click();
+        String commentText = this.driver.findElement(By.xpath("//*[@id = \"Text\"]")).getText();
+        String commentState;
+        if (this.driver.findElement(By.xpath("//*[@id = \"Active\"]")).isSelected()) {
+            commentState = "active";
+        } else {
+            commentState = "inactive";
+        }
+        String category = this.driver.findElement(By.xpath("//*[@id = \"selectedCategories\"/span]")).getText();
+        commentDuplicate.saveAndReturn(commentNumber, commentText, commentState, category);
     }
 
     public void edit(String comments) {

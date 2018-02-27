@@ -13,8 +13,8 @@ public class BCommentTable implements CommentTable {
         this.driver = driver;
     }
 
-    public void selectComment(int commentsNumber) {
-        this.driver.findElements(By.name("SelectedId")).get(commentsNumber).click();
+    public void selectComment(String commentNumber) {
+        this.driver.findElement(By.xpath(String.format("//*[@name =\"SelectedId\" and @value = \"%s\"", commentNumber))).click();
     }
 
     public List<Comment> getComments() {

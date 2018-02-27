@@ -3,6 +3,6 @@ package net.comments.objects;
 import java.util.List;
 
 public interface CommentTable {
-    void selectComment(int commentsNumber);
+    void selectComment(String commentNumber);
     List<Comment> getComments();
 }
