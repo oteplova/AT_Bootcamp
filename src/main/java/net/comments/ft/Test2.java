@@ -17,7 +17,7 @@ public class Test2 extends BaseDriver {
     @Test
     public void test() {
         page.open();
-        String commentNumber = "6";
+        String commentNumber = "5";
         page.getCurrentComments().selectComment(commentNumber);
         String newCommentNumber = "122";
         page.getCommentAction().duplicate(newCommentNumber);
