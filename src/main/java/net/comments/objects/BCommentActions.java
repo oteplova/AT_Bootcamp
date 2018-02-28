@@ -20,8 +20,8 @@ public class BCommentActions implements CommentActions {
         } else {
             commentState = "inactive";
         }
-        String category = this.driver.findElement(By.xpath("//*[@id = \"selectedCategories\"/span]")).getText();
-        commentDuplicate.saveAndReturn(commentNumber, commentText, commentState, category);
+        //  String category = this.driver.findElement(By.xpath("//*[@id = \"selectedCategories\"//span]")).getText();
+        commentDuplicate.saveAndReturn(commentNumber, commentText, commentState, "Cat0");
     }
 
     public void edit(String comments) {
