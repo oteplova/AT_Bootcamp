@@ -19,7 +19,8 @@ public class BCommentTable implements CommentTable {
 
     public List<Comment> getComments() {
         List<Comment> commentsList = new ArrayList<Comment>();
-        for (int i = 1; i <= 10; i++) {
+        int commentsCount = driver.findElements(By.xpath("//*[@class = \"webgrid\"]/tbody/tr")).size();
+        for (int i = 1; i <= commentsCount; i++) {
             String commentNumber = this.driver.findElement(By.xpath("//*[@class = \"webgrid\"]//tr[" + i + "]//td[2]")).getText();
             String commentText = this.driver.findElement(By.xpath("//*[@class = \"webgrid\"]//tr[" + i + "]//td[3]")).getText();
             String commentActivation = this.driver.findElement(By.xpath("//*[@class = \"webgrid\"]//tr[" + i + "]//td[4]")).getText();

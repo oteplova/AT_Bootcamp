@@ -29,4 +29,16 @@ public class BCommentPage implements CommentPage {
     public CommentTable getCommentsFrom(int page) {
         throw new UnsupportedOperationException("Please implement");
     }
+
+    public Pagination getPagination() {
+        return new Pagination(driver);
+    }
+
+    public int getCommentPageSize() {
+        throw new UnsupportedOperationException("Please implement");
+    }
+
+    public BCommentManagerNew getCommentManagerNew() {
+        return new BCommentManagerNew(driver);
+    }
 }
