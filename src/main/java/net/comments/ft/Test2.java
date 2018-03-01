@@ -17,14 +17,17 @@ public class Test2 extends BaseDriver {
     @Test
     public void test() {
         page.open();
-        String commentNumber = "5";
+        int commentNumber = 5;
         page.getCurrentComments().selectComment(commentNumber);
+        String textSelectedComment = page.getCurrentComments().getTextSelectedComment(commentNumber);
+        page.getCommentAction().duplicate();
         String newCommentNumber = "122";
-        page.getCommentAction().duplicate(newCommentNumber);
+        page.getCommentManagerDuplicate().saveAnReturn(newCommentNumber);
         page.getPagination().navigateTo("4");
         CommentTable commentTable = page.getCurrentComments();
         for (Comment comment : commentTable.getComments()) {
-            MatcherAssert.assertThat("Comment Text " + newCommentNumber + " is present", comment.getCommentNumber().contentEquals(newCommentNumber));
+            MatcherAssert.assertThat("Comment Text" + newCommentNumber + " is present", comment.getCommentNumber().contentEquals(newCommentNumber));
+            MatcherAssert.assertThat("Comment Text " + newCommentNumber + " is present", comment.getCommentText().contentEquals("Copy of " + textSelectedComment));
         }
     }
 }
