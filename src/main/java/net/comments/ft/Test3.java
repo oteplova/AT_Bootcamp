@@ -1,7 +1,6 @@
 package net.comments.ft;
 
 import net.comments.objects.BCommentPage;
-import net.comments.objects.Comment;
 import net.comments.objects.CommentPage;
 import net.comments.objects.CommentTable;
 import org.hamcrest.MatcherAssert;
@@ -32,12 +31,13 @@ public class Test3 extends BaseDriver {
         String newCategoryNumber = "Cat1";
         page.getCommentManagerEdit().saveAndReturn(newNumber, newText, newState, newCategoryNumber);
         CommentTable commentTable = page.getCurrentComments();
-        for (Comment comment : commentTable.getComments()) {
-            MatcherAssert.assertThat("Comment Text " + commentNumber + " is not present", comment.getCommentNumber().contentEquals(newNumber));
-            MatcherAssert.assertThat("Comment Text " + commentNumber + "  does not contain " + newText, comment.getCommentText().contentEquals(newText));
-//            MatcherAssert.assertThat("Comment Text " + commentNumber + " is not in" + newState +" state", !comment.getCommentState().contentEquals(newState));
-            MatcherAssert.assertThat("Comment Text " + commentNumber + " does not contain selected category", comment.getCommentCategories().contentEquals(newCategoryNumber));
-        }
+
+        long foundCommentNumber = commentTable.getComments().stream().filter(comment -> comment.getCommentText().contentEquals(newNumber)).count();
+        MatcherAssert.assertThat("Comment with number " + commentNumber + " is not present", foundCommentNumber == 1);
+
+        long foundCommentText = commentTable.getComments().stream().filter(comment -> comment.getCommentText().contentEquals(newText)).count();
+        MatcherAssert.assertThat("Comment Text does not contains" + newText, foundCommentText == 1);
+
 
 
     }
