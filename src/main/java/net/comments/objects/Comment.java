@@ -20,4 +20,12 @@ public class Comment {
     public String getCommentText() {
         return this.commentText;
     }
+
+    public String getCommentState() {
+        return this.commentActivation;
+    }
+
+    public String getCommentCategories() {
+        return this.commentCategories;
+    }
 }
