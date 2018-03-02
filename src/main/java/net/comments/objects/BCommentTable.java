@@ -21,15 +21,6 @@ public class BCommentTable implements CommentTable {
         return this.driver.findElement(By.xpath(String.format("//*[@name = \"SelectedId\" and @value =\"%s\" ]/../../td[3]", commentNumber + 1))).getText();
     }
 
-    public String getStateSelectedComment(int commentNumber) {
-        String state = this.driver.findElement(By.xpath(String.format("//*[@name = \"SelectedId\" and @value =\"%s\" ]/../../td[4]", commentNumber + 1))).getText();
-        if (state.equals("")) {
-            return "active";
-        } else {
-            return "inactive";
-        }
-    }
-
     public List<Comment> getComments() {
         List<Comment> commentsList = new ArrayList<Comment>();
         int commentsCount = driver.findElements(By.xpath("//*[@class = \"webgrid\"]/tbody/tr")).size();
@@ -45,5 +36,4 @@ public class BCommentTable implements CommentTable {
         }
         return commentsList;
     }
-
 }

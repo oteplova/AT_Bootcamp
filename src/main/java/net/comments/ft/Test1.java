@@ -23,7 +23,7 @@ public class Test1 extends BaseDriver {
         page.getPagination().navigateTo("4");
         CommentTable commentTable = page.getCurrentComments();
         for (Comment comment : commentTable.getComments()) {
-            MatcherAssert.assertThat("Comment Text " + commentNumber + " is not present", comment.getCommentNumber().contentEquals(commentNumber));
+            MatcherAssert.assertThat("Comment Text " + commentNumber + " is present", comment.getCommentNumber().contentEquals(commentNumber));
         }
     }
 }

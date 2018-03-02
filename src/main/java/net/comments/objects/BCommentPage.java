@@ -46,7 +46,4 @@ public class BCommentPage implements CommentPage {
         return new BCommentManagerDuplicate(driver);
     }
 
-    public BCommentManagerEdit getCommentManagerEdit() {
-        return new BCommentManagerEdit(driver);
-    }
 }

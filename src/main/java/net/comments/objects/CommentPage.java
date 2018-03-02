@@ -8,7 +8,6 @@ public interface CommentPage {
     CommentTable getCommentsFrom(int page);
     BCommentManagerNew getCommentManagerNew();
 
-    BCommentManagerEdit getCommentManagerEdit();
     BCommentManagerDuplicate getCommentManagerDuplicate();
     Pagination getPagination();
 }
