@@ -3,10 +3,10 @@ package net.comments.objects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class BCommentManagerNew implements CommentManager {
+public class BCommentManager implements CommentManager {
     private final WebDriver driver;
 
-    public BCommentManagerNew(WebDriver driver) {
+    public BCommentManager(WebDriver driver) {
         this.driver = driver;
     }
 

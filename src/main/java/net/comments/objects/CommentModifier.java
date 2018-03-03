@@ -10,17 +10,17 @@ public class CommentModifier {
         this.driver = driver;
     }
 
-    void fillCommentNumber(String newCommentNumber) {
+    public void fillCommentNumber(String newCommentNumber) {
         driver.findElement(By.id("Number")).clear();
         driver.findElement(By.id("Number")).sendKeys(newCommentNumber);
     }
 
-    void fillCommentText(String newCommentText) {
+    public void fillCommentText(String newCommentText) {
         driver.findElement(By.id("Text")).clear();
         driver.findElement(By.id("Text")).sendKeys(newCommentText);
     }
 
-    void changeCommentActivationState(String newState) {
+    public void changeCommentActivationState(String newState) {
         if (newState.equals("active") && !driver.findElement(By.id("Active")).isSelected()) {
             driver.findElement(By.id("Active")).click();
         } else if (newState.equals("inactive") && driver.findElement(By.id("Active")).isSelected()) {
@@ -29,7 +29,7 @@ public class CommentModifier {
 
     }
 
-    void addCategory(String newCategoryName) {
+    public void addCategory(String newCategoryName) {
         int categoryListSize = driver.findElements(By.xpath("//*[@id = \"alvailablecategories\"]/*")).size();
         for (int i = 0; i < categoryListSize; i++) {
             String category = driver.findElement(By.xpath(String.format("//*[span = \"Cat%s\"]", i))).getText();
@@ -41,7 +41,7 @@ public class CommentModifier {
 
     }
 
-    void removeAllCategories() {
+    public void removeAllCategories() {
         driver.findElement(By.xpath("//*[@value=\"<<\"]")).click();
     }
 }
