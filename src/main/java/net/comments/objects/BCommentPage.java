@@ -38,10 +38,6 @@ public class BCommentPage implements CommentPage {
         throw new UnsupportedOperationException("Please implement");
     }
 
-    public BCommentManagerNew getCommentManagerNew() {
-        return new BCommentManagerNew(driver);
-    }
-
     public BCommentManager getCommentManager() {
         return new BCommentManager(driver);
     }

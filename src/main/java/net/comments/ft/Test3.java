@@ -18,27 +18,26 @@ public class Test3 extends BaseDriver {
         page.open();
         int commentNumber = 1;
         page.getCurrentComments().selectComment(commentNumber);
-        String oldState = page.getCurrentComments().getCommentState(commentNumber);
         page.getCommentAction().edit();
         String newNumber = "45";
+        page.getCommentModifier().fillCommentNumber(newNumber);
         String newText = "Edited Comment Text " + commentNumber;
+        page.getCommentModifier().fillCommentText(newText);
         String newState = null;
+        String oldState = page.getCurrentComments().getCommentState(commentNumber);
         if (oldState.equals("active")) {
             newState = "inactive";
         } else if (oldState.equals("inactive")) {
             newState = "active";
         }
-        String newCategoryNumber = "Cat1";
+        String newCategoryName = "Cat1";
+        page.getCommentModifier().removeAllCategories();
+        page.getCommentModifier().addCategory(newCategoryName);
         page.getCommentManager().saveAndReturn();
         CommentTable commentTable = page.getCurrentComments();
-
         long foundCommentNumber = commentTable.getComments().stream().filter(comment -> comment.getCommentText().contentEquals(newNumber)).count();
         MatcherAssert.assertThat("Comment with number " + commentNumber + " is not present", foundCommentNumber == 1);
-
         long foundCommentText = commentTable.getComments().stream().filter(comment -> comment.getCommentText().contentEquals(newText)).count();
         MatcherAssert.assertThat("Comment Text does not contains" + newText, foundCommentText == 1);
-
-
-
     }
 }
