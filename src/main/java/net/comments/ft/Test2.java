@@ -19,15 +19,16 @@ public class Test2 extends BaseDriver {
         page.open();
         int commentNumber = 5;
         page.getCurrentComments().selectComment(commentNumber);
-        String textSelectedComment = page.getCurrentComments().getCommentText(commentNumber);
+        String oldCommentText = page.getCurrentComments().getCommentText(commentNumber);
         page.getCommentAction().duplicate();
         String newCommentNumber = "122";
-        page.getCommentManagerDuplicate().saveAnReturn(newCommentNumber);
+        page.getCommentModifier().fillCommentNumber(newCommentNumber);
+        page.getCommentManager().saveAndReturn();
         page.getPagination().navigateTo("4");
         CommentTable commentTable = page.getCurrentComments();
         for (Comment comment : commentTable.getComments()) {
-            MatcherAssert.assertThat("Comment Text" + newCommentNumber + " is present", comment.getCommentNumber().contentEquals(newCommentNumber));
-            MatcherAssert.assertThat("Comment Text " + newCommentNumber + " is present", comment.getCommentText().contentEquals("Copy of " + textSelectedComment));
+            MatcherAssert.assertThat("Comment" + newCommentNumber + " is not present", comment.getCommentNumber().contentEquals(newCommentNumber));
+            MatcherAssert.assertThat("Comment does not contain Copy of " + oldCommentText, comment.getCommentText().contentEquals("Copy of " + oldCommentText));
         }
     }
 }

@@ -9,7 +9,7 @@ public class BCommentManagerEdit implements CommentManager {
         throw new UnsupportedOperationException("Please implement");
     }
 
-    public void saveAndReturn(String number, String text, String state, String category) {
+    public void saveAndReturn() {
         throw new UnsupportedOperationException("Please implement");
     }
 }
