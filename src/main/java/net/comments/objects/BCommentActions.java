@@ -14,7 +14,7 @@ public class BCommentActions implements CommentActions {
         this.driver.findElement(By.xpath("//*[@value=\"Duplicate...\"]")).click();
     }
 
-    public void edit(String comments) {
+    public void edit() {
         throw new UnsupportedOperationException("Please implement");
     }
 

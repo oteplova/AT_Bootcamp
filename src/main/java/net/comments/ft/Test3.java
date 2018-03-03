@@ -18,7 +18,7 @@ public class Test3 extends BaseDriver {
         page.open();
         int commentNumber = 1;
         page.getCurrentComments().selectComment(commentNumber);
-        String oldState = page.getCurrentComments().getStateSelectedComment(commentNumber);
+        String oldState = page.getCurrentComments().getCommentState(commentNumber);
         page.getCommentAction().edit();
         String newNumber = "45";
         String newText = "Edited Comment Text " + commentNumber;
@@ -29,7 +29,7 @@ public class Test3 extends BaseDriver {
             newState = "active";
         }
         String newCategoryNumber = "Cat1";
-        page.getCommentManagerEdit().saveAndReturn(newNumber, newText, newState, newCategoryNumber);
+        page.getCommentManager().saveAndReturn();
         CommentTable commentTable = page.getCurrentComments();
 
         long foundCommentNumber = commentTable.getComments().stream().filter(comment -> comment.getCommentText().contentEquals(newNumber)).count();
