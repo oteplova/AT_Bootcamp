@@ -19,7 +19,7 @@ public class Test2 extends BaseDriver {
         page.open();
         int commentNumber = 5;
         page.getCurrentComments().selectComment(commentNumber);
-        String textSelectedComment = page.getCurrentComments().getTextSelectedComment(commentNumber);
+        String textSelectedComment = page.getCurrentComments().getCommentText(commentNumber);
         page.getCommentAction().duplicate();
         String newCommentNumber = "122";
         page.getCommentManagerDuplicate().saveAnReturn(newCommentNumber);
