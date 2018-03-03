@@ -6,10 +6,7 @@ public interface CommentPage {
     CommentActions getCommentAction();
     CommentTable getCurrentComments();
     CommentTable getCommentsFrom(int page);
-    BCommentManagerNew getCommentManagerNew();
-
     BCommentManager getCommentManager();
     Pagination getPagination();
-
     CommentModifier getCommentModifier();
 }
