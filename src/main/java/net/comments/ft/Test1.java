@@ -25,7 +25,7 @@ public class Test1 extends BaseDriver {
         page.getCommentModifier().changeCommentActivationState("active");
         String categoryName = "Cat0";
         page.getCommentModifier().addCategory(categoryName);
-        page.getCommentManagerNew().saveAndReturn();
+        page.getCommentManager().saveAndReturn();
         page.getPagination().navigateTo("4");
         CommentTable commentTable = page.getCurrentComments();
         for (Comment comment : commentTable.getComments()) {
