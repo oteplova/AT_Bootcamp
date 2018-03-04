@@ -41,8 +41,8 @@ public class Test1WithDataProvider extends BaseDriver {
     @DataProvider
     public Object[][] testData() {
         return new Object[][]{
-                {"Test latin characters"},
-                {"Проверка символов кирилицы"},
+                {"Test Latin characters"},
+                {"Проверка символов Кириллицы"},
                 {"12456447"},
                 {"âãäåçèéêëìíîðñò"},
         };
