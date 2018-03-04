@@ -15,7 +15,7 @@ public class BCommentActions implements CommentActions {
     }
 
     public void edit() {
-        throw new UnsupportedOperationException("Please implement");
+        this.driver.findElement(By.xpath("//*[@value=\"Edit..\"]")).click();
     }
 
     public void delete() {

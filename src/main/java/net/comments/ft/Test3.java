@@ -18,13 +18,13 @@ public class Test3 extends BaseDriver {
         page.open();
         int commentNumber = 1;
         page.getCurrentComments().selectComment(commentNumber);
+        String oldState = page.getCurrentComments().getCommentState(commentNumber);
         page.getCommentAction().edit();
         String newNumber = "45";
         page.getCommentModifier().fillCommentNumber(newNumber);
         String newText = "Edited Comment Text " + commentNumber;
         page.getCommentModifier().fillCommentText(newText);
         String newState = null;
-        String oldState = page.getCurrentComments().getCommentState(commentNumber);
         if (oldState.equals("active")) {
             newState = "inactive";
         } else if (oldState.equals("inactive")) {
