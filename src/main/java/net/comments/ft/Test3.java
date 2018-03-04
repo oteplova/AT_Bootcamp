@@ -30,12 +30,13 @@ public class Test3 extends BaseDriver {
         } else if (oldState.equals("inactive")) {
             newState = "active";
         }
+        page.getCommentModifier().changeCommentActivationState(newState);
         String newCategoryName = "Cat1";
         page.getCommentModifier().removeAllCategories();
         page.getCommentModifier().addCategory(newCategoryName);
         page.getCommentManager().saveAndReturn();
         CommentTable commentTable = page.getCurrentComments();
-        long foundCommentNumber = commentTable.getComments().stream().filter(comment -> comment.getCommentText().contentEquals(newNumber)).count();
+        long foundCommentNumber = commentTable.getComments().stream().filter(comment -> comment.getCommentNumber().contentEquals(newNumber)).count();
         MatcherAssert.assertThat("Comment with number " + newNumber + " is not present", foundCommentNumber == 1);
         long foundCommentText = commentTable.getComments().stream().filter(comment -> comment.getCommentText().contentEquals(newText)).count();
         MatcherAssert.assertThat("Comment Text does not contains" + newText, foundCommentText == 1);
