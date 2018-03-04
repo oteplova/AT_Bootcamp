@@ -22,4 +22,8 @@ public class BCommentActions implements CommentActions {
         this.driver.findElement(By.xpath("//*[@value=\"Delete\"]")).click();
         this.driver.findElement(By.xpath("//span[text()=\"Yes\"]")).click();
     }
+
+    public void activate() {
+        this.driver.findElement(By.id("commandSelect")).click();
+    }
 }
