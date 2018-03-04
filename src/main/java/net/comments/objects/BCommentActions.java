@@ -24,6 +24,6 @@ public class BCommentActions implements CommentActions {
     }
 
     public void activate() {
-        this.driver.findElement(By.id("commandSelect")).click();
+        this.driver.findElement(By.xpath("//*[@id = \"commandSelect\"]/option[@value = \"Activate\"]")).click();
     }
 }
