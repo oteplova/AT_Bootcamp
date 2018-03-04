@@ -27,6 +27,4 @@ public class Test6 extends BaseDriver {
             }
         }
     }
-
-
 }
