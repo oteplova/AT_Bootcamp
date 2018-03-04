@@ -16,7 +16,7 @@ public class Test6 extends BaseDriver {
         page.open();
         int commentNumber = 7;
         page.getCurrentComments().selectComment(commentNumber);
-
+        page.getCommentAction().activate();
     }
 
 
