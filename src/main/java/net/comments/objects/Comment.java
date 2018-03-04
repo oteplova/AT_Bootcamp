@@ -20,4 +20,8 @@ public class Comment {
     public String getCommentText() {
         return this.commentText;
     }
+
+    public String getCommentActivation() {
+        return this.commentActivation;
+    }
 }
