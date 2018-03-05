@@ -16,12 +16,12 @@ public class Test3 extends BaseDriver {
     @Test
     public void test() {
         page.open();
-        int commentNumber = 1;
+        int[] commentNumber = {1};
         page.getCurrentComments().selectComment(commentNumber);
         page.getCommentAction().edit();
         String newNumber = "45";
         page.getCommentModifier().fillCommentNumber(newNumber);
-        String newText = "Edited Comment Text " + commentNumber;
+        String newText = "Edited Comment Text " + commentNumber[0];
         page.getCommentModifier().fillCommentText(newText);
         page.getCommentModifier().changeCommentActivationState("active");
         String newCategoryName = "Cat1";
