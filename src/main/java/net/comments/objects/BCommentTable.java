@@ -13,11 +13,8 @@ public class BCommentTable implements CommentTable {
         this.driver = driver;
     }
 
-    public void selectComment(int[] commentNumbers) {
-        for (int commentNumber : commentNumbers) {
-            this.driver.findElement(By.xpath(String.format("//*[@name = \"SelectedId\" and @value = \"%s\"]", commentNumber + 1))).click();
-        }
-
+    public void selectComment(int commentNumber) {
+        this.driver.findElement(By.xpath(String.format("//*[@name = \"SelectedId\" and @value = \"%s\"]", commentNumber + 1))).click();
     }
 
     public String getCommentText(int commentNumber) {
@@ -48,4 +45,11 @@ public class BCommentTable implements CommentTable {
         }
         return commentsList;
     }
+
+    public void selectComments(int[] commentNumbers) {
+        for (int commentNumber : commentNumbers) {
+            this.driver.findElement(By.xpath(String.format("//*[@name = \"SelectedId\" and @value = \"%s\"]", commentNumber + 1))).click();
+        }
+    }
+
 }
