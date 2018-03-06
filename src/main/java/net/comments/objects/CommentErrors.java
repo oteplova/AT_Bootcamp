@@ -51,4 +51,17 @@ public class CommentErrors {
             return false;
         }
     }
+
+    public void checkTextValidation(String error) {
+        if (error == "The Comment Text field should contain alphanumeric characters only") {
+            this.hasTextValidationError();
+        } else if (error == "Sorry, an error occurred while processing your request.") {
+            this.hasValidationErrorPage();
+        } else if (error == "The Comment Text field is required.") {
+            this.hasEmptyTextValidationError();
+        } else if (error == "The maximum length of Comment Text field is 50 characters") {
+            this.hasMaxLenghtValidationError();
+        }
+
+    }
 }
