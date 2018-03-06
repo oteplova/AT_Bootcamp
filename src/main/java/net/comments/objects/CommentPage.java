@@ -9,4 +9,6 @@ public interface CommentPage {
     BCommentManager getCommentManager();
     Pagination getPagination();
     CommentModifier getCommentModifier();
+
+    CommentErrors getCommentError();
 }
