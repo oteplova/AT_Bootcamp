@@ -17,12 +17,12 @@ public class Test6 extends BaseDriver {
     @Test
     public void test() {
         page.open();
-        int[] commentNumber = {7};
+        int commentNumber = 7;
         page.getCurrentComments().selectComment(commentNumber);
         page.getCommentAction().activate();
         CommentTable commentTable = page.getCurrentComments();
         for (Comment comment : commentTable.getComments()) {
-            if (comment.getCommentNumber() == Integer.toString(commentNumber[0])) {
+            if (comment.getCommentNumber() == Integer.toString(commentNumber)) {
                 MatcherAssert.assertThat("Comment is not activated", comment.getCommentActivation().equals("active"));
             }
         }
