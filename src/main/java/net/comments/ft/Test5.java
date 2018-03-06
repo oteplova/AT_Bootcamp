@@ -18,7 +18,7 @@ public class Test5 extends BaseDriver {
         page.open();
         CommentTable commentTable = page.getCurrentComments();
         int[] commentNumbers = {2, 5};
-        page.getCurrentComments().selectComment(commentNumbers);
+        page.getCurrentComments().selectComments(commentNumbers);
         page.getCommentAction().delete();
         for (int commentNumber : commentNumbers) {
             for (Comment comment : commentTable.getComments()) {
