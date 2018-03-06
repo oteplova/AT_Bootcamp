@@ -24,6 +24,6 @@ public class Test22 extends BaseDriver {
         String categoryName = "Cat0";
         page.getCommentModifier().addCategory(categoryName);
         page.getCommentManager().saveAndReturn();
-        MatcherAssert.assertThat("Error is not shown", page.getCommentError().hasErrorForCommentText());
+        MatcherAssert.assertThat("Error is not shown", page.getCommentError().hasTextValidationError());
     }
 }

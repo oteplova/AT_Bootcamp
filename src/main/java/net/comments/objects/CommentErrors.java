@@ -13,9 +13,39 @@ public class CommentErrors {
         this.driver = driver;
     }
 
-    public boolean hasErrorForCommentText() {
+    //The Comment Text field should contain alphanumeric characters only
+    public boolean hasTextValidationError() {
         try {
-            this.driver.findElement(By.xpath("//*[@id = \"errorfield\"]"));
+            this.driver.findElement(By.xpath("//*[@id = \"errorfield\" and contains(text(),\"The Comment Text field should contain alphanumeric characters only\")]"));
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+
+    public boolean hasValidationErrorPage() {
+        try {
+            this.driver.findElement(By.xpath("//*[@id = \"main\"]/*[contains(text(),\"Sorry, an error occurred while processing your request.\")]"));
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+
+    //The Comment Text field is required.
+    public boolean hasEmptyTextValidationError() {
+        try {
+            this.driver.findElement(By.xpath("//*[@id = \"errorfield\"]/*/*/span[contains(text(),\"The Comment Text field is required.\")]"));
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+
+    //The maximum length of Comment Text field is 50 characters
+    public boolean hasMaxLenghtValidationError() {
+        try {
+            this.driver.findElement(By.xpath("//*[@id = \"errorfield\"]/*/*/span[contains(text(),\"The maximum length of Comment Text field is 50 characters\")]"));
             return true;
         } catch (NoSuchElementException e) {
             return false;
