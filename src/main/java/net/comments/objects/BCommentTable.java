@@ -48,7 +48,7 @@ public class BCommentTable implements CommentTable {
 
     public void selectComments(int[] commentNumbers) {
         for (int commentNumber : commentNumbers) {
-            this.driver.findElement(By.xpath(String.format("//*[@name = \"SelectedId\" and @value = \"%s\"]", commentNumber + 1))).click();
+            this.selectComment(commentNumber);
         }
     }
 
