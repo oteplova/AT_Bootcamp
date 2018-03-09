@@ -1,9 +1,8 @@
 package net.comments.objects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-
-import java.util.NoSuchElementException;
 
 public class CommentErrors {
 
@@ -52,17 +51,22 @@ public class CommentErrors {
         }
     }
 
-    public boolean checkTextValidation(String error) {
-        if (error == "The Comment Text field should contain alphanumeric characters only") {
-            return this.hasTextValidationError();
-        } else if (error == "Sorry, an error occurred while processing your request.") {
-            return this.hasValidationErrorPage();
-        } else if (error == "The Comment Text field is required.") {
-            return this.hasEmptyTextValidationError();
-        } else if (error == "The maximum length of Comment Text field is 50 characters") {
-            return this.hasMaxLenghtValidationError();
+    public boolean checkTextValidation() {
+
+        return hasTextValidationError() || hasValidationErrorPage() || hasEmptyTextValidationError() || hasMaxLenghtValidationError();
+    }
+
+    public String getErrorTest() {
+        if (hasTextValidationError()) {
+            return this.driver.findElement(By.xpath("//*[@id = \"errorfield\" and contains(text(),\"The Comment Text field should contain alphanumeric characters only\")]")).getText();
+        } else if (hasValidationErrorPage()) {
+            return this.driver.findElement(By.xpath("//*[@id = \"main\"]/*[contains(text(),\"Sorry, an error occurred while processing your request.\")]")).getText();
+        } else if (hasEmptyTextValidationError()) {
+            return this.driver.findElement(By.xpath("//*[@id = \"errorfield\"]/*/*/span[contains(text(),\"The Comment Text field is required.\")]")).getText();
+        } else if (hasMaxLenghtValidationError()) {
+            return this.driver.findElement(By.xpath("//*[@id = \"errorfield\"]/*/*/span[contains(text(),\"The maximum length of Comment Text field is 50 characters\")]")).getText();
         } else {
-            return false;
+            return "  ";
         }
     }
 }
