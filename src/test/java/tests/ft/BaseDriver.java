@@ -1,8 +1,8 @@
-package net.comments.ft;
+package tests.ft;
 
-import net.comments.selenium.CommentsDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import tests.selenium.CommentsDriver;
 
 public class BaseDriver {
     protected CommentsDriver driver;
