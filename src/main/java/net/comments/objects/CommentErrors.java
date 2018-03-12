@@ -13,7 +13,7 @@ public class CommentErrors {
     }
 
     //The Comment Text field should contain alphanumeric characters only
-    public boolean hasTextValidationError() {
+    public boolean hasAlphanumericTextValidationError() {
         try {
             this.driver.findElement(By.xpath("//*[@id = \"errorfield\" and contains(text(),\"The Comment Text field should contain alphanumeric characters only\")]"));
             return true;
@@ -52,19 +52,14 @@ public class CommentErrors {
     }
 
     public boolean checkTextValidation() {
-
-        return hasTextValidationError() || hasValidationErrorPage() || hasEmptyTextValidationError() || hasMaxLenghtValidationError();
+        return hasAlphanumericTextValidationError() || hasValidationErrorPage() || hasEmptyTextValidationError() || hasMaxLenghtValidationError();
     }
 
-    public String getErrorTest() {
-        if (hasTextValidationError()) {
-            return this.driver.findElement(By.xpath("//*[@id = \"errorfield\" and contains(text(),\"The Comment Text field should contain alphanumeric characters only\")]")).getText();
+    public String getErrorText() {
+        if (hasAlphanumericTextValidationError() || hasEmptyTextValidationError() || hasMaxLenghtValidationError()) {
+            return this.driver.findElement(By.xpath("//*[@id = \"errorfield\"]")).getText();
         } else if (hasValidationErrorPage()) {
-            return this.driver.findElement(By.xpath("//*[@id = \"main\"]/*[contains(text(),\"Sorry, an error occurred while processing your request.\")]")).getText();
-        } else if (hasEmptyTextValidationError()) {
-            return this.driver.findElement(By.xpath("//*[@id = \"errorfield\"]/*/*/span[contains(text(),\"The Comment Text field is required.\")]")).getText();
-        } else if (hasMaxLenghtValidationError()) {
-            return this.driver.findElement(By.xpath("//*[@id = \"errorfield\"]/*/*/span[contains(text(),\"The maximum length of Comment Text field is 50 characters\")]")).getText();
+            return this.driver.findElement(By.xpath("//*[@id = \"main\"]")).getText();
         } else {
             return "  ";
         }
