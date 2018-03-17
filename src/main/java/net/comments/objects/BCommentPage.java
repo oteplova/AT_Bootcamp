@@ -46,4 +46,8 @@ public class BCommentPage implements CommentPage {
         return new CommentModifier(driver);
     }
 
+    public CommentErrors getCommentError() {
+        return new CommentErrors(driver);
+    }
+
 }
