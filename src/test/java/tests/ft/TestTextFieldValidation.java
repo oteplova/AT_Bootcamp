@@ -25,7 +25,7 @@ public class TestTextFieldValidation extends BaseDriver {
         page.getCommentModifier().addCategory(categoryName);
         page.getCommentManager().saveAndReturn();
         MatcherAssert.assertThat("Error is not shown", page.getCommentError().checkTextValidation());
-        MatcherAssert.assertThat("Error text is invalid", page.getCommentError().getErrorTest().equals(error));
+        MatcherAssert.assertThat("Error text is invalid", page.getCommentError().getErrorText().equals(error));
     }
 
     @DataProvider
