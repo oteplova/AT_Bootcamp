@@ -1,4 +1,4 @@
-package net.comments.objects;
+package tests.objects;
 
 public interface CommentManager {
     void refresh();

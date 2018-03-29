@@ -1,4 +1,4 @@
-package net.comments.objects;
+package tests.objects;
 
 public class Comment {
     private final String commentNumber;

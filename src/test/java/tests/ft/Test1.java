@@ -1,11 +1,11 @@
-package net.comments.ft;
+package tests.ft;
 
-import net.comments.objects.BCommentPage;
-import net.comments.objects.Comment;
-import net.comments.objects.CommentPage;
-import net.comments.objects.CommentTable;
 import org.hamcrest.MatcherAssert;
 import org.testng.annotations.Test;
+import tests.objects.BCommentPage;
+import tests.objects.Comment;
+import tests.objects.CommentPage;
+import tests.objects.CommentTable;
 
 public class Test1 extends BaseDriver {
     private final CommentPage page;

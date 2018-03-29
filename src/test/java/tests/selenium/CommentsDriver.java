@@ -1,4 +1,4 @@
-package net.comments.selenium;
+package tests.selenium;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

@@ -1,10 +1,10 @@
-package net.comments.ft;
+package tests.ft;
 
-import net.comments.objects.BCommentPage;
-import net.comments.objects.CommentPage;
 import org.hamcrest.MatcherAssert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import tests.objects.BCommentPage;
+import tests.objects.CommentPage;
 
 public class TestTextFieldValidation extends BaseDriver {
     private final CommentPage page;
