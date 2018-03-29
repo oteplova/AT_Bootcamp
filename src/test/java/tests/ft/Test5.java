@@ -1,11 +1,16 @@
 package tests.ft;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.hamcrest.MatcherAssert;
 import org.testng.annotations.Test;
 import tests.objects.BCommentPage;
 import tests.objects.Comment;
 import tests.objects.CommentTable;
 
+@Epic("Test comments app")
+@Feature("Smoke Tests")
 public class Test5 extends BaseDriver {
     private final BCommentPage page;
 
@@ -13,7 +18,8 @@ public class Test5 extends BaseDriver {
         this.page = new BCommentPage(driver);
     }
 
-    @Test
+    @Test(description = "Delete several comments")
+    @Story("Delete comments")
     public void test() {
         page.open();
         CommentTable commentTable = page.getCurrentComments();

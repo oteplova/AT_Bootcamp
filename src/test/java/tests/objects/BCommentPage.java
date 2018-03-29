@@ -1,5 +1,6 @@
 package tests.objects;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -10,10 +11,12 @@ public class BCommentPage implements CommentPage {
         this.driver = driver;
     }
 
+    @Step("Open 'Comments page'")
     public void open() {
         this.driver.get("http://commentssprintone.azurewebsites.net");
     }
 
+    @Step("Click 'New' link")
     public void newComment() {
         this.driver.findElement(By.xpath("//*[@id=\"newbutton\"]")).click();
     }

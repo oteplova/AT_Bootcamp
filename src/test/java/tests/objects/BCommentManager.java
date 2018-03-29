@@ -1,5 +1,6 @@
 package tests.objects;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -18,6 +19,7 @@ public class BCommentManager implements CommentManager {
         throw new UnsupportedOperationException("Please implement");
     }
 
+    @Step("Click 'Save & Return' link")
     public void saveAndReturn() {
         driver.findElement(By.xpath("//*[@value=\"Save & Return\"]")).click();
     }

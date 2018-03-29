@@ -1,5 +1,6 @@
 package tests.objects;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -13,14 +14,17 @@ public class BCommentTable implements CommentTable {
         this.driver = driver;
     }
 
+    @Step("Select comments with comment number")
     public void selectComment(int commentNumber) {
         this.driver.findElement(By.xpath(String.format("//*[@name = \"SelectedId\" and @value = \"%s\"]", commentNumber + 1))).click();
     }
 
+    @Step("Get comment text using comment number")
     public String getCommentText(int commentNumber) {
         return this.driver.findElement(By.xpath(String.format("//*[@name = \"SelectedId\" and @value =\"%s\" ]/../../td[3]", commentNumber + 1))).getText();
     }
 
+    @Step("Get comment state using comment number")
     public String getCommentState(int commentNumber) {
         String state = this.driver.findElement(By.xpath(String.format("//*[@name = \"SelectedId\" and @value =\"%s\" ]/../../td[4]", commentNumber + 1))).getText();
         if (state.equals("")) {
@@ -30,6 +34,7 @@ public class BCommentTable implements CommentTable {
         }
     }
 
+    @Step("Comments table")
     public List<Comment> getComments() {
         List<Comment> commentsList = new ArrayList<Comment>();
         int commentsCount = driver.findElements(By.xpath("//*[@class = \"webgrid\"]/tbody/tr")).size();
@@ -46,6 +51,7 @@ public class BCommentTable implements CommentTable {
         return commentsList;
     }
 
+    @Step("Select two or more comments")
     public void selectComments(int[] commentNumbers) {
         for (int commentNumber : commentNumbers) {
             this.selectComment(commentNumber);

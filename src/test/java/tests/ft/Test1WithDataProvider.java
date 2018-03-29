@@ -1,5 +1,8 @@
 package tests.ft;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.hamcrest.MatcherAssert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -12,6 +15,8 @@ import tests.objects.CommentTable;
  * This AT covers Tests #18, #19, #20, #21
  */
 
+@Epic("Test comments app")
+@Feature("Smoke Tests")
 public class Test1WithDataProvider extends BaseDriver {
     private final CommentPage page;
 
@@ -19,7 +24,8 @@ public class Test1WithDataProvider extends BaseDriver {
         this.page = new BCommentPage(this.driver);
     }
 
-    @Test(dataProvider = "testData")
+    @Test(description = "Create new comments", dataProvider = "testData")
+    @Story("Add/Edit comments")
     public void test(String commentText) {
         page.open();
         page.newComment();
