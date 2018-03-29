@@ -24,7 +24,7 @@ public class Test1WithDataProvider extends BaseDriver {
         this.page = new BCommentPage(this.driver);
     }
 
-    @Test(description = "Create new comments", dataProvider = "testData")
+    @Test(description = "Test1 - Create new comments (with data providers)", dataProvider = "testData")
     @Story("Add/Edit comments")
     public void test(String commentText) {
         page.open();

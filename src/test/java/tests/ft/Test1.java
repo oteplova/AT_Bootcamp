@@ -12,6 +12,7 @@ import tests.objects.CommentTable;
 
 @Epic("Test comments app")
 @Feature("Smoke Tests")
+
 public class Test1 extends BaseDriver {
     private final CommentPage page;
 
@@ -19,7 +20,7 @@ public class Test1 extends BaseDriver {
         this.page = new BCommentPage(this.driver);
     }
 
-    @Test(description = "Create new comment")
+    @Test(description = "Test1 - Create new comment")
     @Story("Add/Edit comments")
     public void test() {
         page.open();

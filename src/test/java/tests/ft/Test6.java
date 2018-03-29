@@ -19,7 +19,7 @@ public class Test6 extends BaseDriver {
         this.page = new BCommentPage(driver);
     }
 
-    @Test(description = "Activate comment")
+    @Test(description = "Test6 - Activate comment")
     @Story("Activate/Inactivate comments")
     public void test() {
         page.open();

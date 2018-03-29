@@ -18,7 +18,7 @@ public class TestTextFieldValidation extends BaseDriver {
         this.page = new BCommentPage(this.driver);
     }
 
-    @Test(description = "'Text' field validation", dataProvider = "testData")
+    @Test(description = "Tests22-32'Text' field validation", dataProvider = "testData")
     @Story("Validation for 'Text' field")
     public void test(String commentText, String error) {
         page.open();

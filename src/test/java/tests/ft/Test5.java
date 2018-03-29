@@ -18,7 +18,7 @@ public class Test5 extends BaseDriver {
         this.page = new BCommentPage(driver);
     }
 
-    @Test(description = "Delete several comments")
+    @Test(description = "Test5 - Delete several comments")
     @Story("Delete comments")
     public void test() {
         page.open();

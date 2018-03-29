@@ -19,7 +19,7 @@ public class Test2 extends BaseDriver {
         this.page = new BCommentPage(this.driver);
     }
 
-    @Test(description = "Duplicate comments")
+    @Test(description = "Test2 - Duplicate comments")
     @Story("Duplicate comments")
     public void test() {
         page.open();
