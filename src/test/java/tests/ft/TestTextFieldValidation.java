@@ -1,11 +1,16 @@
 package tests.ft;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.hamcrest.MatcherAssert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import tests.objects.BCommentPage;
 import tests.objects.CommentPage;
 
+@Epic("Test comments app")
+@Feature("Check fields")
 public class TestTextFieldValidation extends BaseDriver {
     private final CommentPage page;
 
@@ -13,7 +18,8 @@ public class TestTextFieldValidation extends BaseDriver {
         this.page = new BCommentPage(this.driver);
     }
 
-    @Test(dataProvider = "testData")
+    @Test(description = "Tests22-32'Text' field validation", dataProvider = "testData")
+    @Story("Validation for 'Text' field")
     public void test(String commentText, String error) {
         page.open();
         page.newComment();
